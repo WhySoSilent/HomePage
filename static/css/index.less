@@ -1,0 +1,398 @@
+// init
+@defFontColor: #323232;
+body {
+	padding: 0;
+	margin: 0;
+	font-family: "Microsoft YaHei","MicrosoftJhengHei",STHeiti,MingLiu;
+	color: @defFontColor;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+// common
+.container {
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	*zoom: 1;
+}
+
+// Components
+@qrcodeImgWidth: 140px;	// 二维码图片宽度
+.QRCode {
+	width: @qrcodeImgWidth;
+	color: #fff;
+	font-size: 14px;
+
+	&#xBotPath {
+		position: absolute;
+		right: 166px;	// 动态变化的
+		top: 59px;
+	}
+
+	&#bottomPath {
+		position: relative;
+		top: 140px;
+		left: 50px;
+
+		span.toggle.android {
+			color: #15cbff;
+		}
+		span.toggle.ios {
+			color: #555;
+		}
+		// 默认显示安卓,通过添加ios class改变颜色
+		&.ios {
+			span.toggle.android {
+				color: #555;
+			}
+			span.toggle.ios {
+				color: #15cbff;
+			}
+		}
+
+		&>ul {
+			li {
+				border-right: 1px solid #555;
+
+				&:last-child {
+					border-right: none;
+				}
+			}
+		}
+	}
+
+	.qrcode {
+		overflow: hidden;
+		width: 100%;
+		min-height: @qrcodeImgWidth;
+
+		&>img {
+			width: 100%;
+		}
+	}
+
+	&>p {
+		text-align: center;
+		margin: 10px 0 0 0;
+	}
+
+	&>ul {
+		margin: 8px 0;
+		text-align: center;
+
+		li {
+			display: inline-block;
+			box-sizing: border-box;
+			border-right: 1px solid #fff;
+
+			&:last-child {
+				border-right: none;
+			}
+
+			span {
+				cursor: pointer;
+
+				&:hover {
+					color: #ccc;
+				}
+			}
+		}
+	}
+	.qrcode.ios {
+		display: none;
+	}
+	span.toggle.android {
+		color: #15cbff;
+	}
+	span.toggle.ios {
+		color: #fff;
+	}
+	// 默认显示安卓,通过添加ios class改变颜色
+	&.ios {
+		.qrcode.ios {
+			display: block;
+		}
+		.qrcode.android {
+			display: none;
+		}
+		span.toggle.android {
+			color: #fff;
+		}
+		span.toggle.ios {
+			color: #15cbff;
+		}
+	}
+
+}
+// header
+@headerBarWidth: 85px;
+div#header {
+	z-index: 100;
+	position: fixed;
+	width: 100%;
+	height: @headerBarWidth;
+	// ----
+	background: #fff;
+	// ----
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);		//...
+
+	img.logo {
+		margin-top: 23px;
+	}
+	
+	@linkSelectd: #17cbff;
+	ul.nav {
+		float: right;
+		height: @headerBarWidth;
+
+		li {
+			box-sizing: border-box;
+			display: inline-block;
+			width: 90px;
+			height: 24px;
+			line-height: 24px;
+			margin-top: 30px;
+			text-align: center;
+
+			&:last-child {
+				border-left: 1px solid #999;
+			}
+			
+			a {
+				font-size: 13px;
+				color: #959595;
+				text-decoration: none;
+
+				&>span {
+					font-size: 180%;
+					display: none;
+				}
+
+				&>i {
+					font-size: 140%;
+				}
+
+				&.active {
+					color: #15cbff;
+
+					&>span {
+						display: inline-block;
+					}
+				}
+
+				&:hover {
+					color: #16BCEC;
+				}
+			}
+			
+		}
+	}
+}
+// banners
+@bannerMinHeight: 600px;
+@bannerColor1: #00c6ff;
+@bannerColor2: #004eae;
+@bannerColor3: #ff4e2b;
+@bannerColor4: #00c38e;
+@bannerColor5: #ec6f1b;
+@bannerColor6: #8fd9ff;
+@bannerColor7: #f1f1f1;
+div.banner {
+	position: relative;
+	height: 800px;
+	// min-height: @bannerMinHeight;
+
+	&>div.next {
+		position: absolute;
+		top: -40px;
+		left: 50%;
+		width: 72px;
+		height: 72px;
+		line-height: 72px;
+		text-align: center;
+		font-size: 34px;
+		z-index: 50;
+		border-radius: 44px;
+		background: #fff;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	}
+	
+	img.bg_img {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		position: relative;
+		*zoom: 1;
+	}
+
+	&.active {
+		&>div.next {
+			display: none;
+		}
+	}
+}
+div.feature1 {
+	background: @bannerColor1;
+	background-image: url(../img/index/bg_xiaobao.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+div.feature2 {
+	color: @bannerColor2;
+	background: @bannerColor2;
+	background-image: url(../img/index/bg_voice.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+
+
+	&>div.next {
+		border: 4px solid @bannerColor2;
+
+		&:hover {
+			color: #fff;
+			background: @bannerColor2;
+		}
+	}
+}
+div.feature3 {
+	color: @bannerColor3;
+	background: @bannerColor3;
+	background-image: url(../img/index/bg_music.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+
+	&>div.next {
+		border: 4px solid @bannerColor3;
+
+		&:hover {
+			color: #fff;
+			background: @bannerColor3;
+		}
+	}
+}
+div.feature4 {
+	color: @bannerColor4;
+	background: @bannerColor4;
+	background-image: url(../img/index/bg_news.png);
+	background-position: bottom center;
+	background-repeat: no-repeat;
+
+	&>div.next {
+		border: 4px solid @bannerColor4;
+
+		&:hover {
+			color: #fff;
+			background: @bannerColor4;
+		}
+	}
+}
+div.feature5 {
+	color: @bannerColor5;
+	background: @bannerColor5;
+	background-image: url(../img/index/bg_podcast.png);
+	background-position: bottom center;
+	background-repeat: no-repeat;
+
+	&>div.next {
+		border: 4px solid @bannerColor5;
+
+		&:hover {
+			color: #fff;
+			background: @bannerColor5;
+		}
+	}
+}
+div.feature6 {
+	color: @bannerColor6;
+	background: @bannerColor6;
+	background-image: url(../img/index/bg_nav.png);
+	background-position: bottom center;
+	background-repeat: no-repeat;
+
+	&>div.next {
+		border: 4px solid @bannerColor6;
+
+		&:hover {
+			color: #fff;
+			background: @bannerColor6;
+		}
+	}
+}
+div.feature7 {
+	color: @bannerColor7;
+	background: @bannerColor7;
+	background-image: url(../img/index/bg_apps.png);
+	background-position: bottom center;
+	background-repeat: no-repeat;
+
+	&>div.next {
+		border: 4px solid @bannerColor7;
+
+		&:hover {
+			color: #fff;
+			background: @bannerColor7;
+		}
+	}
+}
+// xBot_1
+div#xBot {
+	height: 800px;
+	padding-top: 85px;
+
+	div#xBot_1 {
+		position: relative;
+		top: 256px;
+		width: 90%;
+		// min-height: 384px;
+		// min-width: 1255px;
+		max-width: 1455px;
+		margin-left: auto;
+		margin-right: auto;
+		*zoom: 1;
+
+		//...
+		height: 300px;
+
+		&>img {
+			width: 100%;
+		}
+		
+		div#screen {
+			width: 26%;
+			height: 58%;
+			position: absolute;
+			top: 8%;
+			left: 7%;
+			background: #eee;
+		}
+	}
+}
+// footer 
+div#fotter {
+	overflow: hidden;
+	height: 160px;
+	font-size: 12px;
+	text-align: center;
+	color: #959595;
+	background: #222;
+
+
+	ul.metas {
+		margin-top: 60px;
+
+		li {
+			display: inline;
+			margin-left: 15px;
+		}
+	}
+}
