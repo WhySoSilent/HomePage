@@ -61,11 +61,7 @@ ul {
 
 		&>ul {
 			li {
-				border-right: 1px solid #555;
-
-				&:last-child {
-					border-right: none;
-				}
+				color: #eee;
 			}
 		}
 	}
@@ -88,15 +84,11 @@ ul {
 	&>ul {
 		margin: 8px 0;
 		text-align: center;
+		color: #BBB;
 
 		li {
-			display: inline-block;
+			display: inline;
 			box-sizing: border-box;
-			border-right: 1px solid #fff;
-
-			&:last-child {
-				border-right: none;
-			}
 
 			span {
 				cursor: pointer;
@@ -156,36 +148,48 @@ div#header {
 
 		li {
 			box-sizing: border-box;
-			display: inline-block;
+			display: block;
 			width: 90px;
-			height: 24px;
-			line-height: 24px;
+			height: 25px;
+			float: left;
+			line-height: 25px;
 			margin-top: 30px;
-			text-align: center;
 
 			&:last-child {
-				border-left: 1px solid #999;
+				border-left: 1px solid #D8D8D8;
 			}
 			
+			.iLocate {
+				display: none;
+				float: left;
+				width: 15px;
+				height: 25px;
+				margin-right: 7px;
+				background-image: url(../img/index/icon-locate.png);
+			}
 			a {
 				font-size: 13px;
 				color: #959595;
 				text-decoration: none;
 
-				&>span {
-					font-size: 180%;
-					display: none;
-				}
-
 				&>i {
-					font-size: 140%;
+					display: block;
+					width: 10px;
+					height: 20px;
+					margin-left: 20px;
+					margin-top: 3px;
+					background-image: url(../img/index/icon-apps.png);
+
+					&:hover {
+						background-image: url(../img/index/icon-apps-hover.png);
+					}
 				}
 
 				&.active {
 					color: #15cbff;
 
-					&>span {
-						display: inline-block;
+					&>span.iLocate {
+						display: block;
 					}
 				}
 
@@ -204,26 +208,19 @@ div#header {
 @bannerColor3: #ff4e2b;
 @bannerColor4: #00c38e;
 @bannerColor5: #ec6f1b;
-@bannerColor6: #8fd9ff;
+@bannerColor6: #004ea6;
 @bannerColor7: #f1f1f1;
 div.banner {
 	position: relative;
 	height: 800px;
-	// min-height: @bannerMinHeight;
 
 	&>div.next {
 		position: absolute;
 		top: -40px;
 		left: 50%;
-		width: 72px;
-		height: 72px;
-		line-height: 72px;
-		text-align: center;
-		font-size: 34px;
+		width: 86px;
+		height: 86px;
 		z-index: 50;
-		border-radius: 44px;
-		background: #fff;
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 	}
 	
 	img.bg_img {
@@ -256,12 +253,7 @@ div.feature2 {
 
 
 	&>div.next {
-		border: 4px solid @bannerColor2;
-
-		&:hover {
-			color: #fff;
-			background: @bannerColor2;
-		}
+		background-image: url(../img/index/next_voice.png);
 	}
 }
 div.feature3 {
@@ -272,12 +264,7 @@ div.feature3 {
 	background-repeat: no-repeat;
 
 	&>div.next {
-		border: 4px solid @bannerColor3;
-
-		&:hover {
-			color: #fff;
-			background: @bannerColor3;
-		}
+		background-image: url(../img/index/next_music.png);
 	}
 }
 div.feature4 {
@@ -288,12 +275,7 @@ div.feature4 {
 	background-repeat: no-repeat;
 
 	&>div.next {
-		border: 4px solid @bannerColor4;
-
-		&:hover {
-			color: #fff;
-			background: @bannerColor4;
-		}
+		background-image: url(../img/index/next_news.png);
 	}
 }
 div.feature5 {
@@ -304,12 +286,7 @@ div.feature5 {
 	background-repeat: no-repeat;
 
 	&>div.next {
-		border: 4px solid @bannerColor5;
-
-		&:hover {
-			color: #fff;
-			background: @bannerColor5;
-		}
+		background-image: url(../img/index/next_podcast.png);
 	}
 }
 div.feature6 {
@@ -320,12 +297,7 @@ div.feature6 {
 	background-repeat: no-repeat;
 
 	&>div.next {
-		border: 4px solid @bannerColor6;
-
-		&:hover {
-			color: #fff;
-			background: @bannerColor6;
-		}
+		background-image: url(../img/index/next_nav.png);
 	}
 }
 div.feature7 {
@@ -336,12 +308,7 @@ div.feature7 {
 	background-repeat: no-repeat;
 
 	&>div.next {
-		border: 4px solid @bannerColor7;
-
-		&:hover {
-			color: #fff;
-			background: @bannerColor7;
-		}
+		background-image: url(../img/index/next_apps.png);
 	}
 }
 // xBot_1
