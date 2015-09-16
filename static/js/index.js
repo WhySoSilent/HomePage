@@ -67,14 +67,4 @@ $(function() {
 			is_click = false;
 		}, 100);
 	});
-	// 初始化二维码切换器
-	$(".qrcodeTogger .toggle").click(function(event) {
-		var target = $(this).attr('data-for');
-		if (target === "android") {
-			$(".qrcodeTogger").removeClass("ios");
-		} else {
-			$(".qrcodeTogger").addClass("ios");
-		}
-	})
-
 });

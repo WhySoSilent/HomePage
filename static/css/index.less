@@ -34,36 +34,14 @@ ul {
 
 	&#xBotPath {
 		position: absolute;
-		right: 166px;	// 动态变化的
-		top: 59px;
+		right: 12%;	// 动态变化的
+		top: 58%;
 	}
 
 	&#bottomPath {
 		position: relative;
 		top: 140px;
 		left: 50px;
-
-		span.toggle.android {
-			color: #15cbff;
-		}
-		span.toggle.ios {
-			color: #555;
-		}
-		// 默认显示安卓,通过添加ios class改变颜色
-		&.ios {
-			span.toggle.android {
-				color: #555;
-			}
-			span.toggle.ios {
-				color: #15cbff;
-			}
-		}
-
-		&>ul {
-			li {
-				color: #eee;
-			}
-		}
 	}
 
 	.qrcode {
@@ -89,50 +67,6 @@ ul {
 			}
 		}
 	}
-
-	&>ul {
-		margin: 8px 0;
-		text-align: center;
-		color: #BBB;
-
-		li {
-			display: inline;
-			box-sizing: border-box;
-
-			span {
-				cursor: pointer;
-
-				&:hover {
-					color: #ccc;
-				}
-			}
-		}
-	}
-	.qrcode.ios {
-		display: none;
-	}
-	span.toggle.android {
-		color: #15cbff;
-	}
-	span.toggle.ios {
-		color: #fff;
-	}
-	// 默认显示安卓,通过添加ios class改变颜色
-	&.ios {
-		.qrcode.ios {
-			display: block;
-		}
-		.qrcode.android {
-			display: none;
-		}
-		span.toggle.android {
-			color: #fff;
-		}
-		span.toggle.ios {
-			color: #15cbff;
-		}
-	}
-
 }
 // header
 @headerBarWidth: 85px;
@@ -337,7 +271,7 @@ div#xBot {
 		*zoom: 1;
 
 		//...
-		height: 300px;
+		// height: 300px;
 
 		&>img {
 			width: 100%;
